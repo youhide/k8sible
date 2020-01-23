@@ -1,0 +1,6 @@
+- hosts: master
+  become: yes
+  gather_facts: no
+  user: root
+  roles:
+    - { role: kubeconf, tags: ["create_service_account"] }

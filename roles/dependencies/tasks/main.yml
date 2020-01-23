@@ -1,0 +1,3 @@
+---
+# tasks file for dependencies
+- include: dependencies.yml
