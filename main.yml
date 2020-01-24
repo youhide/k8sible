@@ -1,21 +1,15 @@
 - hosts: all
   become: yes
-  user: root
-  gather_facts: no
-  pre_tasks:
-    - name: "Echo"
-      raw: "echo Echo"
+  # gather_facts: no
   roles:
     - { role: dependencies, tags: ["install_dependencies_role"] }
 
 - hosts: master
   become: yes
-  user: root
   roles:
     - { role: cluster, tags: ["create_cluster_role"] }
 
 - hosts: workers
   become: yes
-  user: root
   roles:
     - { role: configure, tags: ["configure_cluster_role"] }
