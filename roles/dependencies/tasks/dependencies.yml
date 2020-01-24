@@ -5,11 +5,13 @@
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     state: present
+  when: ansible_os_family == "Debian"
 
 - name: Adding repo
   apt_repository:
     repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
     state: present
+  when: ansible_os_family == "Debian"
 
 - name: Installing dependencies
   apt:
@@ -19,3 +21,4 @@
     - kubelet
     - kubeadm
     - kubectl
+  when: ansible_os_family == "Debian"
