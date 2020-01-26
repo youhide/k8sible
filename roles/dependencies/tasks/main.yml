@@ -1,3 +1,4 @@
 ---
 # tasks file for dependencies
-- include: dependencies.yml
+- include: Docker.yml
+- include: "{{ ansible_os_family }}.yml"
